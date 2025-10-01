@@ -120,7 +120,12 @@ contract FlashtestationRegistry is
         uint256 expectedNonce = nonces[signer];
         require(nonce == expectedNonce, InvalidNonce(expectedNonce, nonce));
 
-        require(block.timestamp <= deadline, ExpiredSignature(deadline));
+        // Convert block.timestamp from milliseconds to seconds if needed
+        uint256 currentTime = block.timestamp;
+        if (currentTime > 1e12) { // If timestamp is in milliseconds (greater than year 2001 in seconds)
+            currentTime = currentTime / 1000;
+        }
+        require(currentTime <= deadline, ExpiredSignature(deadline));
 
         // Increment the nonce so that any attempts at replaying this transaction will fail
         nonces[signer]++;
