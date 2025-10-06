@@ -4,7 +4,7 @@
 [submodule "lib/automata-dcap-attestation"]
 	path = lib/automata-dcap-attestation
 	url = git@github.com:ritual-net/automata-dcap-attestation.git
-	branch = arshan/tdx_da
+	branch = dev
 [submodule "lib/openzeppelin-foundry-upgrades"]
 	path = lib/openzeppelin-foundry-upgrades
 	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
